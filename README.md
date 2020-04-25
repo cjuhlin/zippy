@@ -1,6 +1,6 @@
 # zippy
-Script for unpacking diffrent formats and can bruteforce zip file with help of a wordlist
-
+Script for unpacking nested archive and support diffrent formats(zip,tar and gz). It can also bruteforce zip file with help of a wordlist
+Made for a CTF-challenge , Zip-a-Dee-Doo-Dah @ houseplant 2020.
 
 USEAGE:
 ```

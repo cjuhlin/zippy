@@ -23,7 +23,7 @@
 #date            :20200425
 #version         :0.1
 #usage           :python3 zippy.py
-#notes           : Made for a CTF-challenge , Zip-a-Dee-Doo-Dah @ hackplant 2020.
+#notes           : Made for a CTF-challenge , Zip-a-Dee-Doo-Dah @ houseplant 2020.
 #python_version  :3.7
 #==============================================================================
 import random
@@ -193,7 +193,7 @@ def unpacking(filename):
             result = str(workdir) + "/" + str(filelist[0])
     elif "text/plain" in guessfile:
         with open(filename, "r") as fin:
-            logger.info(f"Flag: {fin.read()}")
+            logger.info(f"Output of {filename} :\n {fin.read()}")
         result = None
     else:
         logger.warning(f" {filename} is unknown format! Script will exit now")
