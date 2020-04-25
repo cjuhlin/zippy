@@ -29,7 +29,7 @@ SOFTWARE.
 #date            :20200425
 #version         :0.1
 #usage           :python3 zippy.py
-#notes           : Made for a CTF-challenge , Zip-a-Dee-Doo-Dah @ hackplant 2020. 
+#notes           : Made for a CTF-challenge , Zip-a-Dee-Doo-Dah @ hackplant 2020.
 #python_version  :3.7
 #==============================================================================
 import random
