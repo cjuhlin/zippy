@@ -1,2 +1,2 @@
 coloredlogs==14.0
-python_magic==0.4.15
+file-magic
