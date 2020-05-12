@@ -104,9 +104,12 @@ def guesspass(archive_file, wordlist):
     filename = archive_file
     archive_file = zipfile.ZipFile(archive_file)
     # count the number of words in this wordlist
-    n_words = len(list(open(wordlist, "rb")))
-    workdir = Path(filename).parents[0]
-    logger.info(f"Total passwords to test: {n_words}")
+    try:
+        n_words = len(list(open(wordlist, "rb")))
+        workdir = Path(filename).parents[0]
+        logger.info(f"Total passwords to test: {n_words}")
+    except Exception as e:
+        logger.debug(f"Exception raised: {e}")
     with open(wordlist, "rb") as wordlist:
         for word in wordlist:
             try:
