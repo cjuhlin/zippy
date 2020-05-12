@@ -43,7 +43,7 @@ ap = argparse.ArgumentParser()
 
 # Add the arguments to the parser
 ap.add_argument("-w", "--wordlist",
-                required=True,
+                required=False,
                 help="wordlist with password")
 ap.add_argument("-a", "--archive",
                 required=True,
