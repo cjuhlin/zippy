@@ -31,6 +31,7 @@ import string
 import zipfile
 import tarfile
 import gzip
+import bz2
 from pathlib import Path
 import shutil
 import magic
@@ -180,6 +181,10 @@ def unpacking(filename):
                     newarchive = newfilepath.rename(
                                 newfilepath.with_suffix(".gz"))
                     logger.info(f"Unpacked {newfile}.gz from {filename}")
+                elif "application/x-bzip2" in str(newext):
+                    newarchive = newfilepath.rename(
+                                newfilepath.with_suffix(".bz2"))
+                    logger.info(f"Unpacked {newfile}.bz2 from {filename}")
                 else:
                     logger.warning(
                         f"""Something is off with the MIME-information
@@ -194,6 +199,15 @@ def unpacking(filename):
         filelist = tar.getnames()
         if filelist:
             result = str(workdir) + "/" + str(filelist[0])
+    elif "application/x-bzip2" in guessfile:
+        fname = str(randomString())
+        newfile = str(workdir) + "/" + fname
+        with bz2.open(filename, 'rb') as f:
+            uncompressed_content = f.read()
+        with open(fname, 'wb') as f:
+            f.write(uncompressed_content)
+            f.close()
+        result = str(fname)
     elif "text/plain" in guessfile:
         with open(filename, "r") as fin:
             logger.info(f"Output of {filename} :\n {fin.read()}")
